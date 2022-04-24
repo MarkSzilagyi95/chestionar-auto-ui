@@ -1,0 +1,45 @@
+.message-card{
+    max-width: 800px;
+    height: 650px;
+    background: #fff;
+    box-shadow: 10px 10px 20px grey;
+    min-width: 60%;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 20px;
+}
+.status-text {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 100px;
+    font-weight: 700;
+}
+.aditional-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 64px;
+    font-weight: 600;
+}
+.back-to-new-test-container{
+    margin-top: 100px;
+}
+.back-to-new-test-container a {
+    float: right;
+    margin-right: 100px;
+}
+.btn-back {
+    background: rgb(235, 139, 13);
+    height: 45px;
+    width: 250px;
+    font-weight: 600;
+}
+.success{
+    color: green;
+}
+.fail {
+    color: red;
+}

@@ -1,0 +1,130 @@
+.quiz-question {
+    font-weight: 700;
+    font-size: 32px;
+}
+.quiz-image {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+.quiz-answers {
+    margin-top: 40px;
+    font-size: 22px;
+}
+.quiz-answers li {
+    margin-top: 10px;
+}
+
+.chestionar-quiz-buttons {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.quiz-buttons:not(:first-child){
+    margin-left: 250px;
+}
+.quiz-buttons {
+    width: 150px;
+    height: 80px;
+    font-size: 40px;
+}
+
+.chestionar-steps-buttons {
+    margin-top: 150px;
+    float: right;
+    margin-right: 50px;
+}
+.btn-custom {
+    background: rgb(235, 234, 234);
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: 5px 5px rgb(242, 242, 242);
+    font-weight: 700;
+}
+.btn-custom:hover {
+    background: rgb(216, 214, 214);
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: 5px 5px rgb(242, 242, 242);
+    font-weight: 700;
+}
+
+.btn-quiz-action {
+    margin-left: 10px;
+    height: 60px;
+    width: 220px;
+}
+
+.quiz-answer-container {
+    padding-left: 50px;
+}
+.chestionar-header {
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 80px;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 90%, rgb(203, 203, 203));
+    margin-bottom: 20px;
+}
+.time-remained {
+    float: right;
+    margin: 10px;
+    font-size: 32px;
+    font-weight: 600;
+}
+.answer {
+    font-weight: 600;
+    margin: 0;
+}
+.answer-container {
+    margin-top: 10px;
+}
+.good-answers > span{
+    color: green;
+}
+.bad-answers > span{
+    color: red;
+}
+
+.chestionar-quiz-buttons ul {
+    display: flex;
+    justify-content: center;
+}
+.chestionar-quiz-buttons li{
+    list-style-type: none;
+    list-style-position: outside;
+    float: left;
+}
+.chestionar-quiz-buttons li:not(:first-child){
+    margin-left: 200px;
+}
+  
+input[type="checkbox"]:not(:checked), 
+input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+}
+  
+input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    background: rgb(235, 234, 234);
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: 5px 5px rgb(242, 242, 242);
+    font-weight: 700;
+    color: black;
+    background-color: rgb(233, 232, 232);
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+  
+input[type="checkbox"]:checked + label {
+    /* border: 1px solid white; */
+    color: black;
+    background-color: rgba(248, 142, 36, 0.738);
+}
+.selected {
+    background-color: rgba(248, 142, 36, 0.738);
+}

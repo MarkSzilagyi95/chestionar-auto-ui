@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row chestionar-header">
+            <div class="col answer-container">
+                <p class="answer good-answers">Raspunsuri corecte: <span>{{goodAnswers}}</span></p>
+                <p class="answer bad-answers">Raspunsuri gresite:&nbsp; <span>{{badAnswers}}</span></p>
+            </div>
+            <div class="col">
+                <p class="time-remained">{{minutesRemained}}:{{secondsRemained}}</p>
+            </div>
+        </div>
+
+        <div class="row chestionar-quiz-header">
+            <div class="col-8 quiz-answer-container">
+                <p class="quiz-question">
+                    {{currentQuestion.question}}
+                </p>
+                <ul class="quiz-answers" >
+                    <li class="" *ngFor="let options of currentQuestion.questionOptions" id="answer-{{options.optionLabel}}"><strong>{{options.optionLabel}})</strong> {{options.option}}</li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <div class="img-container" *ngIf="currentQuestion.imageUrl != null">
+                    <img class="quiz-image" src="{{currentQuestion.imageUrl}}"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row chestionar-quiz-buttons">
+            <div class="col-12">
+                <ul>
+                    <li>
+                      <input type="checkbox" id="check_1" (change)="checkboxClick('A')" name="check_1" value="check_1">
+                      <label for="check_1">A</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="check_2" (change)="checkboxClick('B')" name="check_2" value="check_2">
+                      <label for="check_2">B</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="check_3" (change)="checkboxClick('C')" name="check_3" value="check_3">
+                      <label for="check_3">C</label>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+        <div class="row chestionar-steps-buttons">
+            <div class="col-12">
+                <button class="btn btn-custom btn-quiz-action" (click)="skipQuestion()">Sari peste</button>
+                <button class="btn btn-custom btn-quiz-action" (click)="sendResponse()">Trimite raspuns</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

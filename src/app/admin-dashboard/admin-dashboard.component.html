@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Skydash Admin</title>
+  <!-- plugins:css -->
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- <link rel="stylesheet" href="css/vertical-layout-light/style.css"> -->
+  <!-- endinject -->
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      </div>
+    </nav>
+    <!-- partial -->
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Tabel intrebari chestionar.</h4>
+                  <button class="btn btn-warning float-right" (click)="openNew(mymodal)">Adauga nou!</button>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                          <th>
+                            Intrebare
+                          </th>
+                          <th>
+                            Dificultate
+                          </th>
+                          <th>
+                            Optiuni
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let question of questions">
+                        <td>
+                            {{question.id}}
+                        </td>
+                          <td>
+                            {{question.question}}
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div [ngClass]="{
+                                'bg-danger':question.dificultate_percent === 100,
+                                'bg-warning':question.dificultate_percent === 50,
+                                'bg-success':question.dificultate_percent === 25
+                              }" class="progress-bar" role="progressbar"
+                              [ngStyle]="{'width':question.dificultate_percent === 50 ? '50%' : question.dificultate_percent === 100 ? '100%': '25%' }"
+                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
+                            </div>
+                          </td>
+                          <td>
+                              <button class="btn btn-info" (click)="open(mymodal, question.id)">Vizualizare / Modifica</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+            
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Chestionar</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="forms-sample">
+        <div class="form-group">
+          <label for="exampleInputName1">Intrebare</label>
+          <textarea style="height:100px" type="text" class="form-control" value="{{modalText.question}}" id="modalQuestion" placeholder="intrebare"></textarea>
+        </div>
+        <div class="form-group" *ngFor="let raspuns of modalText.questionOptions; let indexOfelement=index;">
+          <label for="answer{{indexOfelement + 1}}">Raspuns {{indexOfelement + 1}}</label>
+          <textarea style="height:60px" type="email" class="form-control" id="answer{{indexOfelement + 1}}" placeholder="text" value="{{raspuns.option}}"></textarea>
+          <label for="answer_correct{{indexOfelement + 1}}">Raspuns corect: &nbsp;&nbsp; </label>
+          <input type="checkbox" [attr.checked]="raspuns.correct ? 'checked' : null" id="answer_correct{{indexOfelement + 1}}"/>
+        </div>
+
+        <div class="form-group">
+          <label>Link imagine</label>
+          <input type="file" name="img[]" class="file-upload-default">
+          <div class="input-group col-xs-12">
+            <input type="text" class="form-control file-upload-info" id="modal-img" value="{{modalText.imageUrl}}" placeholder="Upload Image">
+          </div>
+        </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary mr-2" (click)="save()">Salvare</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Iesire</button>
+  </div>
+</ng-template>
+          
+          
+        </div>
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022  Mark Szilagyi </span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="js/template.js"></script>
+</body>
+
+</html>
+
